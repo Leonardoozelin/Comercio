@@ -1,0 +1,26 @@
+{
+  "name": "comercio",
+  "version": "1.0.0",
+  "description": "Trabalho Professo Neto",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leonardoozelin/Comercio.git"
+  },
+  "author": "Leonardo Ozelin de Miranda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Leonardoozelin/Comercio/issues"
+  },
+  "homepage": "https://github.com/Leonardoozelin/Comercio#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-load": "^1.1.16",
+    "mysql": "^2.15.0"
+  }
+}
