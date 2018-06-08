@@ -1,11 +1,11 @@
 var mysql = require('mysql');
-var database = 'comercio';
+var database = '****'; //Nome do Seu banco de dados
 
 
 // criar instancia do banco de dados
 var client = mysql.createConnection({
    user: 'root',
-   password: 'leo@mir',
+   password: 'Fatec123*',
    host: 'localhost',
    port: 3306
 });
