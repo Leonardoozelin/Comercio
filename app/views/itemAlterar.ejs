@@ -40,63 +40,30 @@
 
     <h4>Itens do Pedido</h4>
 
-    <h5 style="border-bottom: 1px #c5c5c5 solid;">Adicionar Itens</h5>
+    <h5 style="border-bottom: 1px #c5c5c5 solid;">Editar item</h5>
     <div class="form-group row">
 
         <div class="col-md-4">      
             <label for="prod">Produto</label>
-            <input type="text" class="form-control" id="prod" placeholder="Produto">
+            <input type="text" value="<%= itens[0].itp_produto%>" class="form-control" id="prod" placeholder="Produto">
         </div>
         <div class="col-md-1">      
             <label for="qtd">Quantidade</label>
-            <input type="number" class="form-control" id="qtd" placeholder="Quantidade">
+            <input type="number" class="form-control" value="<%= itens[0].itp_quantidade%>" id="qtd" placeholder="Quantidade">
         </div>
         <div class="col-md-1">      
             <label for="vlrUni">Valor Unitario</label>
-            <input type="number" class="form-control" id="vlrUni" placeholder="Valor">
+            <input type="number" class="form-control" id="vlrUni" value="<%= itens[0].itp_valorunit%>" placeholder="Valor">
         </div>
     </div>
     <div class="form-group row">
         <div class="col-md-12">
             <button type="submit" class="btn btn-primary btn-block">Add Item </button>
-            <a class="btn btn-secondary btn-block"  href="/listaPedido">Voltar</a>
+            <a class="btn btn-secondary btn-block"  href="/pedido/views/<%= itens[0].ped_codigo%>">Voltar</a>
         </div>
     </div>
 
     <hr>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Codigo</th>
-                <th>Produto</th>
-                <th>Quantidade</th>
-                <th>valor Unitario</th>
-                <th>Valor Total</th>
-                <th>Codigo Pedido</th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <% for (item of itemPedido){%>
-            <tr>
-                <td><%= item.itp_codigo %> </td>
-                <td><%= item.itp_produto %> </td>
-                <td><%= item.itp_quantidade %> </td>
-                <td><%= item.itp_valorunit %> </td>
-                <td><%= item.itp_valortotal %> </td>
-                <td><%= item.ped_codigo %> </td>
-                <td>
-                    <a class="btn btn-warning" href=<%="/item_editar/views/" + item.itp_codigo%>>Alterar</a>
-                </td>
-                <td>
-                    <a class="btn btn-danger" href=<%="/item/excluir/" + item.itp_codigo%>>Deletar</a>
-                </td>
-            </tr>
-            <%}%>
-        </tbody>
-    </table>
 </div>
 <script src="/js/bootstrap.js"></script>
 </body>

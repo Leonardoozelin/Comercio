@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Comercio</title>
+    <link rel="stylesheet" href="/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+
+<body style="overflow: hidden;">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Lojinho do Tadeu</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/listaPedido">Listar Pedidos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/novoPedido">Novo Pedido</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid formulario">
+    <h3>Novo Pedido</h3>
+    <form action="/pedido/novo" method="post">     
+        <div class="form-group row">
+            <div class="col-md-4">      
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="nome" minlength="10" name="ped_nomecliente" placeholder="Nome Cliente">
+            </div>
+            <div class="col-md-1">      
+                <label for="dtPed">Data</label>
+                <input type="text" class="form-control" id="dtPed" name="ped_dtpedido" placeholder="Data">
+            </div>
+            <div class="col-md-2">      
+                <label for="pgto">Condição de Pgto</label>
+                <select class="form-control custom-select" name="ped_condpagto" id="pgto">
+                    <option></option>
+                    <option>A Vista</option>
+                    <option>A Prazo</option>
+                </select>
+            </div>
+            <div class="col-md-2">      
+                <label for="status">Status do Pedido</label>
+                <select class="form-control custom-select" name="ped_ativoinativo" id="status" placeholder="teste">
+                    <option></option>
+                    <option>Ativo</option>
+                    <option>Inativo</option>
+                </select>
+            </div>
+            <div class="col-md2">      
+                <label for="dtPed">Ordem de pedido</label>
+                <input type="number" class="form-control" id="dtPed" name="ped_ordem" placeholder="Nome Cliente">
+            </div>
+        </div>
+
+        <div class="form-group row" style="margin-right: 12%;">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary btn-block">Salvar Pedido </button>
+                <a class="btn btn-secondary btn-block"  href="/listaPedido">Voltar</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="/js/bootstrap.js"></script>
+</body>
+
+</html>

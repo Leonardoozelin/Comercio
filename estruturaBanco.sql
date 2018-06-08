@@ -1,11 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08/06/2018 às 05:52
--- Versão do servidor: 10.1.31-MariaDB
--- Versão do PHP: 7.2.4
+-- Generation Time: Jun 08, 2018 at 06:49 PM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
+
+CREATE DATABASE comercio;
+USE comercio;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +22,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `comercio`
+-- Database: `comercio`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `itempedido`
+-- Table structure for table `itempedido`
 --
 
 CREATE TABLE `itempedido` (
@@ -38,44 +41,71 @@ CREATE TABLE `itempedido` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Fazendo dump de dados para tabela `itempedido`
+-- Dumping data for table `itempedido`
 --
 
 INSERT INTO `itempedido` (`itp_codigo`, `itp_produto`, `itp_quantidade`, `itp_valorunit`, `itp_valortotal`, `ped_codigo`) VALUES
 (1, 'BATATA FRITA', 20, '2.50', '50.00', 1),
 (2, 'BACON', 10, '1.50', '15.00', 2),
-(3, 'AZEITONA', 100, '1.00', '100.00', 3);
+(3, 'AZEITONA', 100, '1.00', '100.00', 3),
+(4, 'TOMATE', 2, '10.40', '5.20', 2);
+
+-- --------------------------------------------------------
 
 --
--- Índices de tabelas apagadas
+-- Table structure for table `pedido`
+--
+
+CREATE TABLE `pedido` (
+  `ped_codigo` int(11) NOT NULL,
+  `ped_nomecliente` varchar(15) DEFAULT NULL,
+  `ped_dtpedido` varchar(12) DEFAULT NULL,
+  `ped_condpagto` varchar(10) DEFAULT NULL,
+  `ped_ativoinativo` char(1) DEFAULT NULL,
+  `ped_ordem` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pedido`
+--
+
+INSERT INTO `pedido` (`ped_codigo`, `ped_nomecliente`, `ped_dtpedido`, `ped_condpagto`, `ped_ativoinativo`, `ped_ordem`) VALUES
+(1, 'CLAUDIO', '02/06/2018', 'A VISTA', 'A', 123),
+(2, 'RODRIGO', '03/06/2018', 'A PRAZO', 'I', 159),
+(3, 'ANA', '09/06/2018', 'A VISTA', 'A', 369);
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Índices de tabela `itempedido`
+-- Indexes for table `itempedido`
 --
 ALTER TABLE `itempedido`
   ADD PRIMARY KEY (`itp_codigo`),
-  ADD KEY `fk_ped_itp` (`ped_codigo`);
+  ADD KEY `fk_ped_itp` (`ped_codigo`) USING BTREE;
 
 --
--- AUTO_INCREMENT de tabelas apagadas
+-- Indexes for table `pedido`
+--
+ALTER TABLE `pedido`
+  ADD PRIMARY KEY (`ped_codigo`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `itempedido`
+-- AUTO_INCREMENT for table `itempedido`
 --
 ALTER TABLE `itempedido`
-  MODIFY `itp_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `itp_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Restrições para dumps de tabelas
+-- AUTO_INCREMENT for table `pedido`
 --
-
---
--- Restrições para tabelas `itempedido`
---
-ALTER TABLE `itempedido`
-  ADD CONSTRAINT `fk_ped_itp` FOREIGN KEY (`ped_codigo`) REFERENCES `pedido` (`ped_codigo`);
+ALTER TABLE `pedido`
+  MODIFY `ped_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
