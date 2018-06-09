@@ -9,7 +9,10 @@ module.exports = {
     listarItemBtId,
     addPedido,
     alterarPedido,
-    deletaPedido
+    deletaPedido,
+    adicionaItem,
+    deletaItem,
+    alterarItem
 }
 
 function listarPedido (callback){
@@ -40,4 +43,19 @@ function alterarPedido(dados, callback) {
 
 function deletaPedido(id, callback) {
 	client.query('DELETE FROM ' + tabela1 + ' WHERE ped_codigo = ' + id, callback);
+}
+
+function adicionaItem(dados, callback) {
+    var mysql = 'INSERT INTO ' + tabela2 + ' SET ? ';
+    client.query(mysql, dados, callback);
+}
+
+function deletaItem(id, callback) {
+    client.query('DELETE FROM ' + tabela2 + ' WHERE itp_codigo = ' + id, callback);
+}
+
+function alterarItem(dados, callback){
+
+    var mysql = "UPDATE " + tabela2 + " SET itp_produto = '" + dados.itp_produto +"' , itp_quantidade = '" + dados.itp_quantidade + "' , itp_valorunit = '" + dados.itp_valorunit + "' , itp_valortotal = '" + dados.itp_valortotal + "' , ped_codigo = " + dados.ped_codigo + " WHERE itp_codigo = " + dados.itp_codigo;
+    client.query(mysql, dados, callback);
 }

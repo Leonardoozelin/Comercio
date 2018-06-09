@@ -17,55 +17,58 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">Lojinho do Tadeu</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item ">
-                <a class="nav-link" href="/">Home
-                    <span class="sr-only">(current)</span>
-                </a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/listaPedido">Listar Pedidos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/novoPedido">Novo Pedido</a>
-            </li>
-        </ul>
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/listaPedido">Listar Pedidos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/novoPedido">Novo Pedido</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+
+        <h4>Itens do Pedido</h4>
+        <form action="/item_editar/alterar" method="post">
+            <h5 style="border-bottom: 1px #c5c5c5 solid;">Editar item</h5>
+            <div class="form-group row">
+                <div class="col-md-1">
+                    <label for="prod">Codigo</label>
+                    <input type="text" value="<%= itens[0].itp_codigo%>" name="itp_codigo" class="form-control" id="prod" placeholder="Produto" readonly>
+                </div>
+                <div class="col-md-4">
+                    <label for="prod">Produto</label>
+                    <input type="text" value="<%= itens[0].itp_produto%>" name="itp_produto" class="form-control" id="prod" placeholder="Produto">
+                </div>
+                <div class="col-md-1">
+                    <label for="qtd">Quantidade</label>
+                    <input type="text" class="form-control" value="<%= itens[0].itp_quantidade%>" name="itp_quantidade" id="qtd" placeholder="Quantidade">
+                </div>
+                <div class="col-md-1">
+                    <label for="vlrUni">Valor Unitario</label>
+                    <input type="text" class="form-control" id="vlrUni" value="<%= itens[0].itp_valorunit%>" name="itp_valorunit" placeholder="Valor">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <button type="submit" value="<%= itens[0].ped_codigo%>" name="ped_codigo" class="btn btn-primary btn-block">Salvar </button>
+                    <a class="btn btn-secondary btn-block" href="/pedido/views/<%= itens[0].ped_codigo%>">Voltar</a>
+                </div>
+            </div>
+        </form>
+        <hr>
     </div>
-</nav>
-<div class="container-fluid">
-
-    <h4>Itens do Pedido</h4>
-
-    <h5 style="border-bottom: 1px #c5c5c5 solid;">Editar item</h5>
-    <div class="form-group row">
-
-        <div class="col-md-4">      
-            <label for="prod">Produto</label>
-            <input type="text" value="<%= itens[0].itp_produto%>" class="form-control" id="prod" placeholder="Produto">
-        </div>
-        <div class="col-md-1">      
-            <label for="qtd">Quantidade</label>
-            <input type="number" class="form-control" value="<%= itens[0].itp_quantidade%>" id="qtd" placeholder="Quantidade">
-        </div>
-        <div class="col-md-1">      
-            <label for="vlrUni">Valor Unitario</label>
-            <input type="number" class="form-control" id="vlrUni" value="<%= itens[0].itp_valorunit%>" placeholder="Valor">
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-md-12">
-            <button type="submit" class="btn btn-primary btn-block">Add Item </button>
-            <a class="btn btn-secondary btn-block"  href="/pedido/views/<%= itens[0].ped_codigo%>">Voltar</a>
-        </div>
-    </div>
-
-    <hr>
-</div>
-<script src="/js/bootstrap.js"></script>
+    <script src="/js/bootstrap.js"></script>
 </body>
 
 </html>
